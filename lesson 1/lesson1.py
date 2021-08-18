@@ -4,7 +4,7 @@ import requests
 api_method = 'users.getSubscriptions'
 url = f'https://api.vk.com/method/{api_method}'
 
-my_params = {'user_id': '486973140', # Некий Илья Акчурин из Ижевск
+my_params = {'user_id': '486973140', # Некий Илья Акчурин из Ижевска
              'access_token': 'shabam', # Токен не публикуем =)
              'v': '5.131'}
 
