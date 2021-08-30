@@ -83,6 +83,6 @@ for i in range(40):
             hh_vacancies.insert_one(new_vacancy)
 
 # Функция, которая производит поиск и выводит на экран вакансии с заработной платой больше введённой суммы
-def get_vacancies_with_salary(min, max):
-    for item in hh_vacancies.find({'$and': [{'max_salary': {'$gt': min}}, {'min_salary': {'$gt': max}}]}):
+def get_vacancies_with_salary(number):
+    for item in hh_vacancies.find({'$or': [{'max_salary': {'$gt': number}}, {'min_salary': {'$gt': number}}]}):
         print(item)
