@@ -1,5 +1,4 @@
 from lxml import html
-from pprint import pp, pprint
 import requests
 from pymongo import MongoClient
 
