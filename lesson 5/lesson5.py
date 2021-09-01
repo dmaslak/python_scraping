@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from pymongo import MongoClient
-from pprint import pprint
+import json
 
 # Создаём вебдрайвер
 
@@ -46,13 +46,13 @@ while 'disabled' not in next_button.get_attribute('class'):
     driver.implicitly_wait(10)
     driver.execute_script("arguments[0].click();", next_button)
 
-mvideo_novinki = driver.find_elements_by_xpath('//div[@class = "gallery-title-wrapper"]/h2[contains(text(), "Новинки")]/../../..//ul/li')
+mvideo_novinki = driver.find_elements_by_xpath('//div[@class = "gallery-title-wrapper"]/h2[contains(text(), "Новинки")]/../../..//ul/li[@class = "gallery-list-item"]')
 
 for novinka in mvideo_novinki:
     novinka_dict = {}
     url = novinka.find_element_by_tag_name('a').get_attribute('href')
-    title = novinka.find_element_by_tag_name('h3').text
-    price = novinka.find_element_by_xpath('//span[contains(@class, "price")]').text
+    title = novinka.find_element_by_tag_name('a').get_attribute('data-track-label')
+    price = float(json.loads(novinka.find_element_by_tag_name('a').get_attribute('data-product-info'))['productPriceLocal'])
 
     novinka_dict['url'] = url
     novinka_dict['title'] = title
@@ -60,5 +60,5 @@ for novinka in mvideo_novinki:
 
     mvideo_goods.update_one({'url': url}, {'$set': novinka_dict}, upsert = True)
 
-for i in mvideo_goods.find({}):
-    pprint(i)
+for document in mvideo_goods.find({}):
+    print(document)
