@@ -16,15 +16,15 @@ mvideo_goods = db.mvideo_goods
 
 # Кликаем на выбор города, печатаем 'Челябинск' в появившемся окне и выбираем его
 
-# choose_city_button = driver.find_element_by_id('header-city-selection-link')
-# choose_city_button.click()
+choose_city_button = driver.find_element_by_id('header-city-selection-link')
+choose_city_button.click()
 
-# driver.implicitly_wait(10)
-# city_text_box = driver.find_element_by_id('region-selection-form-city-input')
-# city_text_box.send_keys('Челябинск')
+driver.implicitly_wait(10)
+city_text_box = driver.find_element_by_id('region-selection-form-city-input')
+city_text_box.send_keys('Челябинск')
 
-# choose_city_button = driver.find_element_by_class_name('sel-droplist-cities')
-# choose_city_button.click()
+choose_city_button = driver.find_element_by_class_name('sel-droplist-cities')
+choose_city_button.click()
 
 # Скроллим страницу до футера, чтобы всё подгрузить
 page = driver.find_element_by_tag_name('html')
