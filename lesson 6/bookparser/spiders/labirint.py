@@ -7,15 +7,15 @@ class LabirintSpider(scrapy.Spider):
     name = 'labirint'
     allowed_domains = ['labirint.ru']
     start_urls = ['https://www.labirint.ru/search/фентези/?price_min=0&price_max=100', 
-                # 'https://www.labirint.ru/search/фентези/?price_min=100&price_max=200',
-                # 'https://www.labirint.ru/search/фентези/?price_min=200&price_max=300',
-                # 'https://www.labirint.ru/search/фентези/?price_min=300&price_max=400',
-                # 'https://www.labirint.ru/search/фентези/?price_min=400&price_max=500',
-                # 'https://www.labirint.ru/search/фентези/?price_min=500&price_max=600',
-                # 'https://www.labirint.ru/search/фентези/?price_min=600&price_max=700',
-                # 'https://www.labirint.ru/search/фентези/?price_min=700&price_max=800',
-                # 'https://www.labirint.ru/search/фентези/?price_min=800&price_max=900',
-                # 'https://www.labirint.ru/search/фентези/?price_min=900&price_max=1000',
+                'https://www.labirint.ru/search/фентези/?price_min=100&price_max=200',
+                'https://www.labirint.ru/search/фентези/?price_min=200&price_max=300',
+                'https://www.labirint.ru/search/фентези/?price_min=300&price_max=400',
+                'https://www.labirint.ru/search/фентези/?price_min=400&price_max=500',
+                'https://www.labirint.ru/search/фентези/?price_min=500&price_max=600',
+                'https://www.labirint.ru/search/фентези/?price_min=600&price_max=700',
+                'https://www.labirint.ru/search/фентези/?price_min=700&price_max=800',
+                'https://www.labirint.ru/search/фентези/?price_min=800&price_max=900',
+                'https://www.labirint.ru/search/фентези/?price_min=900&price_max=1000',
                 'https://www.labirint.ru/search/фентези/?price_min=1000']
 
     def parse(self, response: HtmlResponse):
