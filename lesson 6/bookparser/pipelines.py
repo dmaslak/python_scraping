@@ -6,7 +6,7 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from pymongo import MongoClient, collection 
+from pymongo import MongoClient
 
 class BookparserPipeline:
     def __init__(self):
@@ -15,5 +15,6 @@ class BookparserPipeline:
 
     def process_item(self, item, spider):
         collection = self.mongo_base[spider.name]
-        collection.insert_one(item)
+        # collection.insert_one(item)
+        collection.update_one({'url': item['url']}, {'$set': item}, upsert = True)
         
